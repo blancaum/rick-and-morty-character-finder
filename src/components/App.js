@@ -6,18 +6,25 @@ import { useState, useEffect } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 //services
 import callToApi from '../services/api';
+import ls from '../services/localStorage';
 
 function App() {
   // VARIABLES ESTADO
-  const [data, setData] = useState([]);
-  const [apiSuccess, setApiSuccess] = useState(false);
+  const [data, setData] = useState(ls.get('data', []));
+  const [apiSuccess, setApiSuccess] = useState(ls.get('apiSuccess', false));
+
+  //API
 
   // USEEFFECT
   useEffect(() => {
-    callToApi().then((response) => {
-      setData(response.data);
-      setApiSuccess(response.success);
-    });
+    if (!ls.isKeyInLocal('data') || !ls.get('apiSuccess', false)) {
+      callToApi().then((response) => {
+        setData(response.data);
+        ls.set('data', response);
+        setApiSuccess(response.success);
+        ls.set('apiSuccess', response.success);
+      });
+    }
   }, []);
 
   // FUNCIONES HANDLER
