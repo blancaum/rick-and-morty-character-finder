@@ -1,6 +1,13 @@
 import FilterByName from './FilterByName';
+import FilterBySpecies from './FilterBySpecies';
 
-function Filters({ searchName = '', handleNameChange }) {
+function Filters({
+  searchName = '',
+  handleNameChange,
+  uniqueSpecies = [],
+  searchSpecies = [],
+  handleSpeciesChange,
+}) {
   const handleSubmit = (ev) => {
     ev.preventDefault();
   };
@@ -10,6 +17,11 @@ function Filters({ searchName = '', handleNameChange }) {
       <FilterByName
         handleNameChange={handleNameChange}
         searchName={searchName}
+      />
+      <FilterBySpecies
+        uniqueSpecies={uniqueSpecies}
+        handleSpeciesChange={handleSpeciesChange}
+        searchSpecies={searchSpecies}
       />
     </form>
   );

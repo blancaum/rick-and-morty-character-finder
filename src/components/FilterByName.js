@@ -4,7 +4,7 @@ const FilterByName = ({ searchName = '', handleNameChange }) => {
   };
 
   return (
-    <>
+    <fieldset>
       <label htmlFor="name">
         Character name:
         <input
@@ -15,7 +15,7 @@ const FilterByName = ({ searchName = '', handleNameChange }) => {
           value={searchName}
         />
       </label>
-    </>
+    </fieldset>
   );
 };
 export default FilterByName;

@@ -3,7 +3,7 @@ import '../styles/App.scss';
 //hooks
 import { useState, useEffect } from 'react';
 //router
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 //services
 import callToApi from '../services/api';
 import ls from '../services/localStorage';
@@ -15,11 +15,24 @@ function App() {
   // VARIABLES ESTADO
   const [data, setData] = useState(ls.get('data', []));
   const [searchName, setSearchName] = useState('');
+  const [searchSpecies, setSearchSpecies] = useState([]);
 
-  // USEEFFECT
+  // FUNCIONES AUXILIARES
+  const compareCharacterName = (character1, character2) => {
+    if (character1.name < character2.name) {
+      return -1;
+    }
+    if (character1.name > character2.name) {
+      return 1;
+    }
+    return 0;
+  };
+
+  // USE EFFECT
   useEffect(() => {
     if (!ls.isKeyInLocal('data') || !ls.get('apiRickMortySuccess', false)) {
       callToApi().then((response) => {
+        response.data.sort(compareCharacterName);
         setData(response.data);
         ls.clear();
         ls.set('data', response.data);
@@ -35,8 +48,38 @@ function App() {
   const handleNameChange = (value) => {
     setSearchName(value);
   };
+  const handleSpeciesChange = (value) => {
+    if (searchSpecies.includes(value)) {
+      searchSpecies.splice(searchSpecies.indexOf(value), 1);
+      setSearchSpecies([...searchSpecies]);
+    } else {
+      setSearchSpecies([...searchSpecies, value]);
+    }
+  };
 
-  // FUNCIONES Y VARIABLES QUE AYUDEN A RENDERIZAR HTML
+  //
+  const getUniqueSpecies = () => {
+    const species = data.map((character) => character.species);
+    let uniqueSpecies = new Set();
+    species.map((eachSpecies) => {
+      uniqueSpecies.add(eachSpecies);
+    });
+
+    return Array.from(uniqueSpecies);
+  };
+
+  //FILTROS
+  const dataFiltered = data
+    .filter((character) => {
+      return character.name.toLowerCase().includes(searchName.toLowerCase());
+    })
+    .filter((character) => {
+      if (searchSpecies.length === 0) {
+        return true;
+      } else {
+        return searchSpecies.includes(character.species);
+      }
+    });
 
   // HTML EN EL RETURN
 
@@ -55,12 +98,17 @@ function App() {
                 <Filters
                   handleNameChange={handleNameChange}
                   searchName={searchName}
+                  uniqueSpecies={getUniqueSpecies()}
+                  handleSpeciesChange={handleSpeciesChange}
+                  searchSpecies={searchSpecies}
                 />
-                <CharactersList data={data} searchName={searchName} />
+                <CharactersList
+                  data={dataFiltered}
+                  searchName={searchName}
+                  searchSpecies={searchSpecies}
+                />
               </>
             }></Route>
-
-          <Route path="/redirect" element={<Navigate to="/" />} />
 
           <Route
             exact
