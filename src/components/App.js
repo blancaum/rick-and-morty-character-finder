@@ -62,26 +62,10 @@ function App() {
 
           <Route path="/redirect" element={<Navigate to="/" />} />
 
-          {/* <Route
-            exact
-            path="/character/:characterId"
-            element={
-              data.length < 1 ? (
-                <Navigate to="/" />
-              ) : (
-                <CharacterDetail data={data} />
-              )
-            }></Route> */}
-
           <Route
             exact
             path="/character/:characterId"
             element={<CharacterDetail data={data} />}></Route>
-
-          {/* <Route
-            exact
-            path="/character/:characterId/:characterName/:characterSpecies/:characterOrigin/:characterLocation/:characterEpisodes/:characterStatus"
-            element={<CharacterDetail />}></Route> */}
         </Routes>
       </main>
     </div>
