@@ -1,1 +1,0 @@
-{"version":3,"file":"static/css/main.335a7790.css","mappings":"AAAA,MAGE,sBAFA,QAAS,CACT,SACsB","sources":["styles/core/_reset.scss"],"sourcesContent":[":root {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n"],"names":[],"sourceRoot":""}
