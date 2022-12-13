@@ -10,6 +10,7 @@ import ls from '../services/localStorage';
 import CharactersList from './CharactersList';
 import Filters from './Filters';
 import CharacterDetail from './CharacterDetail';
+import Header from './Header';
 
 function App() {
   // VARIABLES ESTADO
@@ -61,6 +62,7 @@ function App() {
   const getUniqueSpecies = () => {
     const species = data.map((character) => character.species);
     let uniqueSpecies = new Set();
+    // eslint-disable-next-line
     species.map((eachSpecies) => {
       uniqueSpecies.add(eachSpecies);
     });
@@ -85,9 +87,7 @@ function App() {
 
   return (
     <div className="App">
-      <header>
-        <h1 className="title">Rick & Morty</h1>
-      </header>
+      <Header />
       <main>
         <Routes>
           <Route

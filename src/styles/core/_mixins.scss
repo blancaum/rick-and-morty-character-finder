@@ -1,0 +1,21 @@
+@mixin tablet {
+    @media all and (min-width: 768px) {
+        @content
+    }
+}
+
+@mixin desktop {
+    @media all and (min-width: 1280px) {
+        @content
+    }
+}
+
+@mixin fieldsets {
+    display: flex;
+    gap: 10px;
+    font-weight: bold;
+    background-color: $dark-purple;
+    border: solid 5px $fandango;
+    padding: 10px 60px;
+    border-radius: 12px;
+}

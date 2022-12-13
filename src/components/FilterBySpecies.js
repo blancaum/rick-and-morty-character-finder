@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/components/FilterBySpecies.scss';
 
 const FilterBySpecies = ({
   uniqueSpecies = [],
@@ -19,12 +20,13 @@ const FilterBySpecies = ({
           value={option}
           onChange={handleChanges}
           checked={searchSpecies.includes(option)}
+          className="form__species__input"
         />
         <label htmlFor={option}>{option}</label>
       </React.Fragment>
     );
   });
 
-  return <fieldset>{renderSpeciesOptions}</fieldset>;
+  return <fieldset className="form__species">{renderSpeciesOptions}</fieldset>;
 };
 export default FilterBySpecies;

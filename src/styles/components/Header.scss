@@ -1,0 +1,20 @@
+@import '../core/variables';
+@import '../core/mixins';
+
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    &__image {
+        height: 200px;
+    }
+
+    &__title {
+        font-family: $fontShadows;
+        font-size: 2.5rem;
+        text-shadow: 5px 10px 11px $fandango;
+    }
+}

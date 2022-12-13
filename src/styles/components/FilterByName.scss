@@ -1,0 +1,10 @@
+@import '../core/variables';
+@import '../core/mixins';
+
+.form__name {
+    @include fieldsets;
+
+    &__input {
+        font-family: $fontRobotoMono;
+    }
+}

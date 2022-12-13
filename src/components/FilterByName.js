@@ -1,20 +1,21 @@
+import '../styles/components/FilterByName.scss';
+
 const FilterByName = ({ searchName = '', handleNameChange }) => {
   const handleChange = (event) => {
     handleNameChange(event.target.value);
   };
 
   return (
-    <fieldset>
-      <label htmlFor="name">
-        Character name:
-        <input
-          id="name"
-          name="name"
-          type="text"
-          onChange={handleChange}
-          value={searchName}
-        />
-      </label>
+    <fieldset className="form__name">
+      <label htmlFor="name">Character name:</label>
+      <input
+        id="name"
+        name="name"
+        type="text"
+        onChange={handleChange}
+        value={searchName}
+        className="form__name__input"
+      />
     </fieldset>
   );
 };

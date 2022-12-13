@@ -1,0 +1,6 @@
+@import '../core/variables';
+@import '../core/mixins';
+
+.form__species {
+    @include fieldsets;
+}

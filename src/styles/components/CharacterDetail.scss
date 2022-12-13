@@ -1,0 +1,27 @@
+@import '../core/variables';
+@import '../core/mixins';
+
+.character-detail {
+    display: flex;
+    justify-content: center;
+
+    & .character {
+        background-color: $dark-purple;
+        padding: 60px;
+        border: solid 5px $fandango;
+        border-radius: 12px;
+        width: 700px;
+
+        &__image {
+            float: left;
+            margin-right: 30px;
+        }
+
+        &__link {
+            color: $fandango;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+    }
+
+}

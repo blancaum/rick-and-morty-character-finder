@@ -1,5 +1,6 @@
 import FilterByName from './FilterByName';
 import FilterBySpecies from './FilterBySpecies';
+import '../styles/components/Filters.scss';
 
 function Filters({
   searchName = '',
@@ -13,7 +14,7 @@ function Filters({
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="form">
       <FilterByName
         handleNameChange={handleNameChange}
         searchName={searchName}

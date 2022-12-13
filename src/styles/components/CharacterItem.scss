@@ -1,0 +1,19 @@
+@import '../core/variables';
+@import '../core/mixins';
+
+.character {
+    &__image {
+        width: 300px;
+        border-radius: 12px;
+    }
+
+    &__name {
+        word-wrap: break-word;
+        font-size: 2rem;
+        color: $lime-green;
+    }
+
+    &__species {
+        color: $blue-ncs;
+    }
+}
