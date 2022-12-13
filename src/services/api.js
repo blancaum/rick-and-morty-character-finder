@@ -8,8 +8,11 @@ function callToApi() {
         data: [],
         success: false,
       };
+      /*foto, nombre y especie, el planeta de origen, el número de
+      episodios en los que aparece y si está vivo o muerto.*/
+
       if (responseJson.results) {
-        console.log('Conection with API: success');
+        console.log('Connection with API: success');
         cleanResults.success = true;
         cleanResults.data = responseJson.results.map((character) => {
           return {
@@ -17,16 +20,24 @@ function callToApi() {
             name: character.name,
             species: character.species,
             image: character.image,
+            origin: character.origin.name,
+            location: character.location.name,
+            episode: character.episode,
+            status: character.status,
           };
         });
       } else {
-        console.log('Conection with API: ERROR. Displaying data from file.');
+        console.log('Connection with API: ERROR. Displaying data from file.');
         cleanResults.data = data.results.map((character) => {
           return {
             id: character.id,
             name: character.name,
             species: character.species,
             image: character.image,
+            origin: character.origin.name,
+            location: character.location.name,
+            episode: character.episode,
+            status: character.status,
           };
         });
       }
