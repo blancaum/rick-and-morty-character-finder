@@ -1,4 +1,5 @@
 import CharacterItem from './CharacterItem';
+import { Link } from 'react-router-dom';
 
 function CharactersList({ data = [], searchName = '' }) {
   const renderCharacters = data
@@ -6,7 +7,11 @@ function CharactersList({ data = [], searchName = '' }) {
       return character.name.toLowerCase().includes(searchName.toLowerCase());
     })
     .map((character) => {
-      return <CharacterItem key={character.id} character={character} />;
+      return (
+        <Link to={`/character/${character.id}`}>
+          <CharacterItem key={character.id} character={character} />
+        </Link>
+      );
     });
 
   return (

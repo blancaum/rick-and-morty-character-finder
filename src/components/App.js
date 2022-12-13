@@ -9,6 +9,7 @@ import callToApi from '../services/api';
 import ls from '../services/localStorage';
 import CharactersList from './CharactersList';
 import Filters from './Filters';
+import CharacterDetail from './CharacterDetail';
 
 function App() {
   // VARIABLES ESTADO
@@ -45,8 +46,23 @@ function App() {
         <h1 className="title">Rick & Morty</h1>
       </header>
       <main>
-        <Filters handleNameChange={handleNameChange} searchName={searchName} />
-        <CharactersList data={data} searchName={searchName} />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Filters
+                  handleNameChange={handleNameChange}
+                  searchName={searchName}
+                />
+                <CharactersList data={data} searchName={searchName} />
+              </>
+            }></Route>
+
+          <Route
+            path="/character/:characterId"
+            element={<CharacterDetail data={data} />}></Route>
+        </Routes>
       </main>
     </div>
   );
