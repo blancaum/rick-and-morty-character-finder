@@ -3,7 +3,7 @@ import '../styles/App.scss';
 //hooks
 import { useState, useEffect } from 'react';
 //router
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 //services
 import callToApi from '../services/api';
 import ls from '../services/localStorage';
@@ -48,6 +48,7 @@ function App() {
       <main>
         <Routes>
           <Route
+            exact
             path="/"
             element={
               <>
@@ -59,9 +60,28 @@ function App() {
               </>
             }></Route>
 
-          <Route
+          <Route path="/redirect" element={<Navigate to="/" />} />
+
+          {/* <Route
+            exact
             path="/character/:characterId"
-            element={<CharacterDetail data={data} />}></Route>
+            element={
+              data.length < 1 ? (
+                <Navigate to="/" />
+              ) : (
+                <CharacterDetail data={data} />
+              )
+            }></Route> */}
+
+          {/* <Route
+            exact
+            path="/character/:characterId"
+            element={<CharacterDetail data={data} />}></Route> */}
+
+          <Route
+            exact
+            path="/character/:characterId/:characterName/:characterSpecies/:characterOrigin/:characterLocation/:characterEpisodes/:characterStatus"
+            element={<CharacterDetail />}></Route>
         </Routes>
       </main>
     </div>

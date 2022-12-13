@@ -8,15 +8,23 @@ function CharactersList({ data = [], searchName = '' }) {
     })
     .map((character) => {
       return (
-        <Link to={`/character/${character.id}`}>
-          <CharacterItem key={character.id} character={character} />
-        </Link>
+        <li key={character.id}>
+          <Link
+            to={`/character/${character.id}/${character.name}/${character.species}/${character.origin}/${character.location}/${character.episode.length}/${character.status}`}>
+            <CharacterItem character={character} />
+          </Link>
+        </li>
       );
     });
+  console.log(renderCharacters);
 
   return (
     <section>
-      <ul>{renderCharacters}</ul>
+      <ul>
+        {renderCharacters.length > 0
+          ? renderCharacters
+          : "We couldn't find any character named " + searchName + '.'}
+      </ul>
     </section>
   );
 }
