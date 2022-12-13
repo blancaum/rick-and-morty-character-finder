@@ -73,15 +73,15 @@ function App() {
               )
             }></Route> */}
 
-          {/* <Route
-            exact
-            path="/character/:characterId"
-            element={<CharacterDetail data={data} />}></Route> */}
-
           <Route
             exact
+            path="/character/:characterId"
+            element={<CharacterDetail data={data} />}></Route>
+
+          {/* <Route
+            exact
             path="/character/:characterId/:characterName/:characterSpecies/:characterOrigin/:characterLocation/:characterEpisodes/:characterStatus"
-            element={<CharacterDetail />}></Route>
+            element={<CharacterDetail />}></Route> */}
         </Routes>
       </main>
     </div>

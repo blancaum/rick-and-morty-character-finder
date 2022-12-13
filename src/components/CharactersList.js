@@ -9,8 +9,7 @@ function CharactersList({ data = [], searchName = '' }) {
     .map((character) => {
       return (
         <li key={character.id}>
-          <Link
-            to={`/character/${character.id}/${character.name}/${character.species}/${character.origin}/${character.location}/${character.episode.length}/${character.status}`}>
+          <Link to={`/character/${character.id}`}>
             <CharacterItem character={character} />
           </Link>
         </li>
