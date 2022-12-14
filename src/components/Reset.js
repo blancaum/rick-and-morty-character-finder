@@ -1,4 +1,4 @@
-import '../styles/components/FilterByName.scss';
+import '../styles/components/Reset.scss';
 import PropTypes from 'prop-types';
 
 function Reset({ handleResetClick }) {

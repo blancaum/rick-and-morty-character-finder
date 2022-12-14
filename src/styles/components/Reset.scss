@@ -1,0 +1,22 @@
+@import '../core/variables';
+@import '../core/mixins';
+
+.form__reset {
+    font-family: $fontSpace;
+    font-size: 1rem;
+    font-weight: bold;
+    border-color: $fandango;
+    border-width: 4px;
+    color: #FFFFFF;
+    background-image: linear-gradient(92.88deg, $fandango 9.16%, $palatinate-purple 43.89%, $dark-purple 64.72%);
+    border-radius: 12px;
+    cursor: pointer;
+    padding: 10px 20px;
+    text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
+    transition: all .5s;
+}
+
+.form__reset:hover {
+    box-shadow: $yellow-green 0 1px 30px;
+    transition-duration: .1s;
+}
