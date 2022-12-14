@@ -21,7 +21,9 @@ function CharacterDetail({ data = [], getRandomNumber }) {
             <p>{`Origin: ${selectedCharacter.origin}`}</p>
             <p>{`Location: ${selectedCharacter.location}`}</p>
             <p>{`Number of episodes: ${selectedCharacter.episode.length}`}</p>
-            <p>{`Status: ${selectedCharacter.status}`}</p>
+            <p>{`Status: ${selectedCharacter.status} ${
+              selectedCharacter.status === 'Dead' ? '💀' : ''
+            }`}</p>
             <Link to="/" className="character__link">
               Go back...
             </Link>
