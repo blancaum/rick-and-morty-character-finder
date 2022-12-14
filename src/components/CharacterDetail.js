@@ -2,14 +2,16 @@ import { Link, useParams } from 'react-router-dom';
 import CharacterItem from './CharacterItem';
 import '../styles/components/CharacterDetail.scss';
 import PropTypes from 'prop-types';
-import pickleRick from '../images/error/pickle-rick.gif';
+import pickleImages from './PickleImages';
 
-function CharacterDetail({ data = [] }) {
+function CharacterDetail({ data = [], getRandomNumber }) {
   const { characterId } = useParams();
 
   const selectedCharacter = data.find(
     (character) => parseInt(character.id) === parseInt(characterId)
   );
+
+  const pickleImageIndex = getRandomNumber(pickleImages.length - 1);
 
   return (
     <>
@@ -30,8 +32,8 @@ function CharacterDetail({ data = [] }) {
           <p className="error__text">ERROR: character not found.</p>
           <img
             className="error__image"
-            src={pickleRick}
-            alt="Error sad pickle Rick"
+            src={pickleImages[pickleImageIndex]}
+            alt="Error, have a pickle Rick"
           />
           <Link to="/" className="error__link">
             Go home
@@ -44,6 +46,7 @@ function CharacterDetail({ data = [] }) {
 
 CharacterDetail.propTypes = {
   data: PropTypes.array.isRequired,
+  getRandomNumber: PropTypes.func.isRequired,
 };
 
 export default CharacterDetail;
