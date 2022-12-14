@@ -31,6 +31,18 @@ function App() {
 
   // USE EFFECT
   useEffect(() => {
+    //Uso el Local Storage para que no se hagan tantas peticiones al servidor
+    //De esta manera solo hacemos petición al servidor cada 10 recargas de la página
+    debugger;
+    const counter = ls.get('counterPageReload', 0);
+
+    if (counter >= 10) {
+      ls.clear();
+    } else {
+      ls.set('counterPageReload', counter + 1);
+    }
+
+    //Petición al servidor
     if (!ls.isKeyInLocal('data') || !ls.get('apiRickMortySuccess', false)) {
       callToApi().then((response) => {
         response.data.sort(compareCharacterName);
@@ -56,6 +68,11 @@ function App() {
     } else {
       setSearchSpecies([...searchSpecies, value]);
     }
+  };
+
+  const handleResetClick = () => {
+    setSearchName('');
+    setSearchSpecies([]);
   };
 
   //
@@ -101,6 +118,7 @@ function App() {
                   uniqueSpecies={getUniqueSpecies()}
                   handleSpeciesChange={handleSpeciesChange}
                   searchSpecies={searchSpecies}
+                  handleResetClick={handleResetClick}
                 />
                 <CharactersList
                   data={dataFiltered}

@@ -2,6 +2,7 @@ import FilterByName from './FilterByName';
 import FilterBySpecies from './FilterBySpecies';
 import '../styles/components/Filters.scss';
 import PropTypes from 'prop-types';
+import Reset from './Reset';
 
 function Filters({
   searchName = '',
@@ -9,6 +10,7 @@ function Filters({
   uniqueSpecies = ['Human', 'Alien'],
   searchSpecies = [],
   handleSpeciesChange,
+  handleResetClick,
 }) {
   const handleSubmit = (ev) => {
     ev.preventDefault();
@@ -25,6 +27,7 @@ function Filters({
         handleSpeciesChange={handleSpeciesChange}
         searchSpecies={searchSpecies}
       />
+      <Reset handleResetClick={handleResetClick} />
     </form>
   );
 }
@@ -35,6 +38,7 @@ Filters.propTypes = {
   uniqueSpecies: PropTypes.array,
   searchSpecies: PropTypes.array.isRequired,
   handleSpeciesChange: PropTypes.func.isRequired,
+  handleResetClick: PropTypes.func.isRequired,
 };
 
 export default Filters;
