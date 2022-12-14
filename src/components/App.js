@@ -41,6 +41,10 @@ function App() {
     return Array.from(uniqueSpecies);
   };
 
+  const getRandomNumber = (max) => {
+    return Math.ceil(Math.random() * max);
+  };
+
   // USE EFFECT
   useEffect(() => {
     //Uso el Local Storage para que no se hagan tantas peticiones al servidor
@@ -122,8 +126,7 @@ function App() {
                 />
                 <CharactersList
                   data={dataFiltered}
-                  searchName={searchName}
-                  searchSpecies={searchSpecies}
+                  getRandomNumber={getRandomNumber}
                 />
               </>
             }></Route>
@@ -131,7 +134,9 @@ function App() {
           <Route
             exact
             path="/character/:characterId"
-            element={<CharacterDetail data={data} />}></Route>
+            element={
+              <CharacterDetail data={data} getRandomNumber={getRandomNumber} />
+            }></Route>
         </Routes>
       </main>
     </div>
