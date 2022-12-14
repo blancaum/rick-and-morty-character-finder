@@ -2,7 +2,7 @@ import CharacterItem from './CharacterItem';
 import { Link } from 'react-router-dom';
 import '../styles/components/CharacterList.scss';
 import PropTypes from 'prop-types';
-import errorImages from './ErrorImages';
+import pickleImages from './PickleImages';
 
 function CharactersList({ data = [], getRandomNumber }) {
   const renderCharacters = data.map((character) => {
@@ -17,7 +17,7 @@ function CharactersList({ data = [], getRandomNumber }) {
     );
   });
 
-  const errorImageIndex = getRandomNumber(errorImages.length - 1);
+  const pickleImageIndex = getRandomNumber(pickleImages.length - 1);
 
   return (
     <>
@@ -28,12 +28,13 @@ function CharactersList({ data = [], getRandomNumber }) {
       ) : (
         <section className="error">
           <p className="error__text">
-            We couldn't find any character with those search parameters 😢
+            We couldn't find any character with those search parameters, here,
+            have a pickle 🥒.
           </p>
           <img
             className="error__image"
-            src={errorImages[errorImageIndex]}
-            alt="Sad gif because we didn't find any character"
+            src={pickleImages[pickleImageIndex]}
+            alt="Pckle Rick gif for you"
           />
         </section>
       )}
