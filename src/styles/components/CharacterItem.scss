@@ -3,8 +3,12 @@
 
 .character {
     &__image {
-        width: 300px;
+        width: 200px;
         border-radius: 12px;
+
+        @include desktop {
+            width: 300px;
+        }
     }
 
     &__name {

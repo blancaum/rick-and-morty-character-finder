@@ -49,7 +49,6 @@ function App() {
   useEffect(() => {
     //Uso el Local Storage para que no se hagan tantas peticiones al servidor
     //De esta manera solo hacemos petición al servidor cada 10 recargas de la página
-    debugger;
     const counter = ls.get('counterPageReload', 0);
 
     if (counter >= 10) {

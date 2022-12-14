@@ -8,7 +8,7 @@ function FilterByName({ searchName = '', handleNameChange }) {
 
   return (
     <fieldset className="form__name">
-      <label htmlFor="name">Character name:</label>
+      <label htmlFor="name">Name:</label>
       <input
         id="name"
         name="name"
