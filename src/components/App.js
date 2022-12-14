@@ -7,6 +7,7 @@ import { Routes, Route } from 'react-router-dom';
 //services
 import callToApi from '../services/api';
 import ls from '../services/localStorage';
+//components
 import CharactersList from './CharactersList';
 import Filters from './Filters';
 import CharacterDetail from './CharacterDetail';
@@ -27,6 +28,17 @@ function App() {
       return 1;
     }
     return 0;
+  };
+
+  const getUniqueSpecies = () => {
+    const species = data.map((character) => character.species);
+    let uniqueSpecies = new Set();
+    // eslint-disable-next-line
+    species.map((eachSpecies) => {
+      uniqueSpecies.add(eachSpecies);
+    });
+
+    return Array.from(uniqueSpecies);
   };
 
   // USE EFFECT
@@ -73,18 +85,6 @@ function App() {
   const handleResetClick = () => {
     setSearchName('');
     setSearchSpecies([]);
-  };
-
-  //
-  const getUniqueSpecies = () => {
-    const species = data.map((character) => character.species);
-    let uniqueSpecies = new Set();
-    // eslint-disable-next-line
-    species.map((eachSpecies) => {
-      uniqueSpecies.add(eachSpecies);
-    });
-
-    return Array.from(uniqueSpecies);
   };
 
   //FILTROS
