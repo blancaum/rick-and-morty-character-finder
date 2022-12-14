@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom';
 import CharacterItem from './CharacterItem';
 import '../styles/components/CharacterDetail.scss';
 import PropTypes from 'prop-types';
+import pickleRick from '../images/error/pickle-rick.gif';
 
 function CharacterDetail({ data = [] }) {
   const { characterId } = useParams();
@@ -25,9 +26,17 @@ function CharacterDetail({ data = [] }) {
           </CharacterItem>
         </section>
       ) : (
-        <>
-          <p>ERROR: character not found.</p> <Link to="/">Go home</Link>
-        </>
+        <section className="error">
+          <p className="error__text">ERROR: character not found.</p>
+          <img
+            className="error__image"
+            src={pickleRick}
+            alt="Error sad pickle Rick"
+          />
+          <Link to="/" className="error__link">
+            Go home
+          </Link>
+        </section>
       )}
     </>
   );
