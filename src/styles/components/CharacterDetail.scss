@@ -25,3 +25,28 @@
     }
 
 }
+
+.error {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__text {
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-shadow: 5px 3px 5px $dark-purple;
+    }
+
+    &__image {
+        border-radius: 12px;
+    }
+
+    &__link {
+        margin-top: 20px;
+        font-size: 3rem;
+        font-weight: bold;
+        color: $yellow-green;
+        text-shadow: 5px 3px 5px $dark-purple;
+    }
+}
