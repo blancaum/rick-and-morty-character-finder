@@ -6,15 +6,37 @@
     justify-content: center;
 
     & .character {
+        display: flex;
+        flex-direction: column;
         background-color: $dark-purple;
-        padding: 60px;
         border: solid 5px $fandango;
         border-radius: 12px;
-        width: 700px;
+        padding: 30px 20px;
+        width: 250px;
+        margin-top: 20px;
+
+        @include tablet {
+            width: 500px;
+        }
+
+        @include desktop {
+            display: unset;
+            padding: 60px;
+            width: 700px;
+        }
 
         &__image {
-            float: left;
-            margin-right: 30px;
+
+            align-self: center;
+
+            @include tablet {
+                width: fit-content;
+            }
+
+            @include desktop {
+                float: left;
+                margin-right: 30px;
+            }
         }
 
         &__link {
@@ -33,13 +55,24 @@
     align-items: center;
 
     &__text {
-        font-size: 1.5rem;
+        font-size: 0.9rem;
         font-weight: bold;
         text-shadow: 5px 3px 5px $dark-purple;
+
+        @include tablet {
+            font-size: 1.5rem;
+        }
     }
 
     &__image {
         border-radius: 12px;
+        width: 250px;
+
+        @include tablet {
+            width: fit-content;
+            min-width: 250px;
+            max-width: 600px;
+        }
     }
 
     &__link {

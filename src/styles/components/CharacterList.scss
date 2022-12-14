@@ -6,17 +6,32 @@
     &__list {
         display: grid;
         place-items: center;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        padding: 0px;
+
+        @include tablet {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include desktop {
+            grid-template-columns: repeat(3, 1fr);
+        }
 
         &__item {
-            background-color: $dark-purple;
             padding: 20px;
+            background-color: $dark-purple;
             margin-bottom: 60px;
-            max-width: 300px;
-            min-height: 500px;
             border: solid 5px $fandango;
             border-radius: 12px;
             list-style: none;
+            max-width: 200px;
+            min-height: 450px;
+
+            @include tablet {}
+
+            @include desktop {
+                max-width: 300px;
+                min-height: 500px;
+            }
 
             &--link {
                 color: white;

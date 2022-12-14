@@ -12,10 +12,20 @@
 
 @mixin fieldsets {
     display: flex;
-    gap: 10px;
+    font-size: 0.9rem;
     font-weight: bold;
     background-color: $dark-purple;
     border: solid 5px $fandango;
-    padding: 10px 60px;
+    border: solid 5px $fandango;
+    gap: 5px;
+    padding: 10px 10px;
     border-radius: 12px;
+
+    @include tablet {
+        font-size: 1rem;
+        border: solid 5px $fandango;
+        gap: 10px;
+        padding: 10px 60px;
+        border-radius: 12px;
+    }
 }
