@@ -3,7 +3,7 @@
 
 ## 📋Project description📋
 
-This project gets the characters of Rick and Morty from an API and lets you see their information.
+This project gets the characters of [Rick and Morty from an API](https://rickandmortyapi.com/documentation/#get-all-characters) and lets you see their information.
 Also, you can filter these characters by two criteria: by name and by species.
 If you click on any character, you can access an individual page for each of them that shows more details.
 
