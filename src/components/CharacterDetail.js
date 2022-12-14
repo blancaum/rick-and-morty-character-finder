@@ -1,9 +1,9 @@
 import { Link, useParams } from 'react-router-dom';
 import CharacterItem from './CharacterItem';
 import '../styles/components/CharacterDetail.scss';
-import React from 'react';
+import PropTypes from 'prop-types';
 
-function CharacterDetail({ data }) {
+function CharacterDetail({ data = [] }) {
   const { characterId } = useParams();
 
   const selectedCharacter = data.find(
@@ -32,4 +32,9 @@ function CharacterDetail({ data }) {
     </>
   );
 }
+
+CharacterDetail.propTypes = {
+  data: PropTypes.array.isRequired,
+};
+
 export default CharacterDetail;

@@ -1,11 +1,12 @@
 import FilterByName from './FilterByName';
 import FilterBySpecies from './FilterBySpecies';
 import '../styles/components/Filters.scss';
+import PropTypes from 'prop-types';
 
 function Filters({
   searchName = '',
   handleNameChange,
-  uniqueSpecies = [],
+  uniqueSpecies = ['Human', 'Alien'],
   searchSpecies = [],
   handleSpeciesChange,
 }) {
@@ -27,4 +28,13 @@ function Filters({
     </form>
   );
 }
+
+Filters.propTypes = {
+  searchName: PropTypes.string.isRequired,
+  handleNameChange: PropTypes.func.isRequired,
+  uniqueSpecies: PropTypes.array,
+  searchSpecies: PropTypes.array.isRequired,
+  handleSpeciesChange: PropTypes.func.isRequired,
+};
+
 export default Filters;

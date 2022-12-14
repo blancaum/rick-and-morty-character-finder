@@ -1,8 +1,9 @@
 import React from 'react';
 import '../styles/components/FilterBySpecies.scss';
+import PropTypes from 'prop-types';
 
 function FilterBySpecies({
-  uniqueSpecies = [],
+  uniqueSpecies = ['Human', 'Alien'],
   searchSpecies = [],
   handleSpeciesChange,
 }) {
@@ -29,4 +30,11 @@ function FilterBySpecies({
 
   return <fieldset className="form__species">{renderSpeciesOptions}</fieldset>;
 }
+
+FilterBySpecies.propTypes = {
+  uniqueSpecies: PropTypes.array,
+  searchSpecies: PropTypes.array.isRequired,
+  handleSpeciesChange: PropTypes.func.isRequired,
+};
+
 export default FilterBySpecies;

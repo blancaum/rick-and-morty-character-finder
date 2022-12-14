@@ -1,4 +1,5 @@
 import '../styles/components/FilterByName.scss';
+import PropTypes from 'prop-types';
 
 function FilterByName({ searchName = '', handleNameChange }) {
   const handleChange = (event) => {
@@ -19,4 +20,10 @@ function FilterByName({ searchName = '', handleNameChange }) {
     </fieldset>
   );
 }
+
+FilterByName.propTypes = {
+  searchName: PropTypes.string.isRequired,
+  handleNameChange: PropTypes.func.isRequired,
+};
+
 export default FilterByName;

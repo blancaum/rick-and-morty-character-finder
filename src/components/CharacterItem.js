@@ -1,6 +1,7 @@
 import '../styles/components/CharacterItem.scss';
+import PropTypes from 'prop-types';
 
-function CharacterItem({ character, children }) {
+function CharacterItem({ character = {}, children }) {
   return (
     <article className="character">
       <img
@@ -14,4 +15,9 @@ function CharacterItem({ character, children }) {
     </article>
   );
 }
+
+CharacterItem.propTypes = {
+  character: PropTypes.object.isRequired,
+};
+
 export default CharacterItem;
