@@ -1,6 +1,6 @@
 import '../styles/components/FilterByName.scss';
 
-const FilterByName = ({ searchName = '', handleNameChange }) => {
+function FilterByName({ searchName = '', handleNameChange }) {
   const handleChange = (event) => {
     handleNameChange(event.target.value);
   };
@@ -18,5 +18,5 @@ const FilterByName = ({ searchName = '', handleNameChange }) => {
       />
     </fieldset>
   );
-};
+}
 export default FilterByName;

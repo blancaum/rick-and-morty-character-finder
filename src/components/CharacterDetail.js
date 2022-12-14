@@ -6,19 +6,19 @@ import React from 'react';
 function CharacterDetail({ data }) {
   const { characterId } = useParams();
 
-  const selectedCharacter = data.filter(
+  const selectedCharacter = data.find(
     (character) => parseInt(character.id) === parseInt(characterId)
   );
 
   return (
     <>
-      {selectedCharacter.length > 0 ? (
+      {selectedCharacter ? (
         <section className="character-detail">
-          <CharacterItem character={selectedCharacter[0]}>
-            <p>{`Origin: ${selectedCharacter[0].origin}`}</p>
-            <p>{`Location: ${selectedCharacter[0].location}`}</p>
-            <p>{`Number of episodes: ${selectedCharacter[0].episode.length}`}</p>
-            <p>{`Status: ${selectedCharacter[0].status}`}</p>
+          <CharacterItem character={selectedCharacter}>
+            <p>{`Origin: ${selectedCharacter.origin}`}</p>
+            <p>{`Location: ${selectedCharacter.location}`}</p>
+            <p>{`Number of episodes: ${selectedCharacter.episode.length}`}</p>
+            <p>{`Status: ${selectedCharacter.status}`}</p>
             <Link to="/" className="character__link">
               Go back...
             </Link>

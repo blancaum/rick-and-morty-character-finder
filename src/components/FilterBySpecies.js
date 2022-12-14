@@ -1,11 +1,11 @@
 import React from 'react';
 import '../styles/components/FilterBySpecies.scss';
 
-const FilterBySpecies = ({
+function FilterBySpecies({
   uniqueSpecies = [],
   searchSpecies = [],
   handleSpeciesChange,
-}) => {
+}) {
   const handleChanges = (event) => {
     handleSpeciesChange(event.target.value);
   };
@@ -28,5 +28,5 @@ const FilterBySpecies = ({
   });
 
   return <fieldset className="form__species">{renderSpeciesOptions}</fieldset>;
-};
+}
 export default FilterBySpecies;
