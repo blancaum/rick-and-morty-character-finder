@@ -4,16 +4,14 @@
 
 .characters {
     &__list {
-        display: grid;
-        place-items: center;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
         padding: 0px;
 
-        @include tablet {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
         @include desktop {
-            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
         }
 
         &__item {
