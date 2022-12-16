@@ -89,6 +89,7 @@ function App() {
   const handleResetClick = () => {
     setSearchName('');
     setSearchSpecies([]);
+    setComparePlanet(false);
   };
 
   const handleComparePlanetChange = (value) => {
