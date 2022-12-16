@@ -18,6 +18,7 @@ function App() {
   const [data, setData] = useState(ls.get('data', []));
   const [searchName, setSearchName] = useState('');
   const [searchSpecies, setSearchSpecies] = useState([]);
+  const [comparePlanet, setComparePlanet] = useState(false);
 
   // FUNCIONES AUXILIARES
   const compareCharacterName = (character1, character2) => {
@@ -90,6 +91,10 @@ function App() {
     setSearchSpecies([]);
   };
 
+  const handleComparePlanetChange = (value) => {
+    setComparePlanet(value);
+  };
+
   //FILTROS
   const dataFiltered = data
     .filter((character) => {
@@ -101,8 +106,14 @@ function App() {
       } else {
         return searchSpecies.includes(character.species);
       }
+    })
+    .filter((character) => {
+      if (comparePlanet) {
+        return character.origin === character.location;
+      } else {
+        return character;
+      }
     });
-
   // HTML EN EL RETURN
 
   return (
@@ -122,6 +133,8 @@ function App() {
                   handleSpeciesChange={handleSpeciesChange}
                   searchSpecies={searchSpecies}
                   handleResetClick={handleResetClick}
+                  comparePlanet={comparePlanet}
+                  handleComparePlanetChange={handleComparePlanetChange}
                 />
                 <CharactersList
                   data={dataFiltered}

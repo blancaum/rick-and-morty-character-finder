@@ -1,5 +1,6 @@
 import FilterByName from './FilterByName';
 import FilterBySpecies from './FilterBySpecies';
+import FilterByPlanet from './FilterByPlanet';
 import '../styles/components/Filters.scss';
 import PropTypes from 'prop-types';
 import Reset from './Reset';
@@ -11,6 +12,8 @@ function Filters({
   searchSpecies = [],
   handleSpeciesChange,
   handleResetClick,
+  comparePlanet,
+  handleComparePlanetChange,
 }) {
   const handleSubmit = (ev) => {
     ev.preventDefault();
@@ -27,6 +30,10 @@ function Filters({
         handleSpeciesChange={handleSpeciesChange}
         searchSpecies={searchSpecies}
       />
+      <FilterByPlanet
+        comparePlanet={comparePlanet}
+        handleComparePlanetChange={handleComparePlanetChange}
+      />
       <Reset handleResetClick={handleResetClick} />
     </form>
   );
@@ -39,6 +46,8 @@ Filters.propTypes = {
   searchSpecies: PropTypes.array.isRequired,
   handleSpeciesChange: PropTypes.func.isRequired,
   handleResetClick: PropTypes.func.isRequired,
+  comparePlanet: PropTypes.bool.isRequired,
+  handleComparePlanetChange: PropTypes.func.isRequired,
 };
 
 export default Filters;
