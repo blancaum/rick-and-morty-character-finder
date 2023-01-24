@@ -1,5 +1,5 @@
 # 🥒🚀👽Rick & Morty Character Finder👽🚀🥒
-### Module 3 Final exam - Author✒️: Blanca Ubis Martínez
+### Author✒️: Blanca Ubis Martínez
 
 ## 📋Project description📋
 
